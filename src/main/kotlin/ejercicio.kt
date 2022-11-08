@@ -19,11 +19,9 @@ fun main() {
     while(finish == 2) {
 
         println()
-        println("Esta es mi clave publica: $publica")
-        println()
-        println("Pulsa 1 para encriptar o pulsa 2 para desencriptar")
+        println("mi clave publica: $publica")
+        println("pulsa 1 para encriptar, pulsa 2 para desencriptar")
         var opcion1 = readln().toInt()
-
         if (opcion1 == 1) {
 
             println("escribe mensaje para cifrar")
@@ -31,7 +29,7 @@ fun main() {
             println("Clave publica del destinatario")
             var publica2 = readln().toString()
             val c = encrypt(mensaje1, publica2)
-            println("Tu mensaje cifrado: $c")
+            println(c)
 
         }
 
@@ -41,7 +39,6 @@ fun main() {
             var mensaje2 = readln().toString()
             println(decrypt(mensaje2, privada))
         }
-
     }
 
 }
@@ -96,3 +93,4 @@ fun decrypt(encryptedMessage: String, privateKey: String): String {
     val bytes = cipher.doFinal(Base64.getDecoder().decode(encryptedMessage))
     return String(bytes)
 }
+
